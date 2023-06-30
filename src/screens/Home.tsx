@@ -6,6 +6,7 @@ import {
 } from "../utils/api/requests";
 import NewsSection from "../components/home/NewsSection";
 import { useCategoryStore } from "../stores/categories";
+import Navbar from "../components/Navbar/Navbar";
 
 const Home = () => {
   const { news, bbc, cnn, nbc, setNews, setBBC, setCNN, setNBC } =
@@ -39,8 +40,11 @@ const Home = () => {
   }, []);
 
   return (
+
+    <>
+   <Navbar/>
     <ScrollView style={{ flex: 1 }}>
-      <View style={{flex: 1, marginBottom: 80}}>
+      <View style={{flex: 1, marginBottom: 80 , marginTop:5}}>
         {/* Trending Topics */}
         <NewsSection
           title={"Trending Topics"}
@@ -61,6 +65,8 @@ const Home = () => {
         <NewsSection title={"NBC"} titleSize={16} data={nbc} />
       </View>
     </ScrollView>
+    </>
+    
   );
 };
 
