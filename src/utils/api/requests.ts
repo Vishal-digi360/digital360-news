@@ -1,5 +1,11 @@
 import { API_KEY } from "@env";
+
+
 import axios, { AxiosError } from "axios";
+
+
+
+const ApiKey = "3bc136b1223945ec849e614719e60628"
 
 const instance = axios.create({
   baseURL: "https://newsapi.org",
