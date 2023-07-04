@@ -67,6 +67,7 @@ const CategoryItem: React.FC<Props> = ({ item }) => {
             {dateFormat(item.publishedAt, false)}
           </Text>
         </View>
+        
       </View>
     </View>
   );

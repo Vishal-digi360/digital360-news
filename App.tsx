@@ -13,6 +13,7 @@ import Categories from "./src/screens/Categories";
 import CategoryDetails from "./src/screens/CategoryDetails";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Fragment } from "react";
+import AppDetails from "./src/screens/AppDetails";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -42,9 +43,9 @@ const BottomTab = () => {
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Fragment>
-              <Icon name="home" color={focused ? "#274472" : color} size={26} />
+              <Icon name="home" color={focused ? "#d71e1f" : color} size={26} />
               <Text
-                style={{fontWeight: '500', fontSize: 12, color: focused ? "#274472" : color }}
+                style={{ fontWeight: '500', fontSize: 12, color: focused ? "#d71e1f" : color }}
               >
                 Home
               </Text>
@@ -52,6 +53,9 @@ const BottomTab = () => {
           ),
         }}
       />
+
+
+
       <Tab.Screen
         name="Categories"
         component={Categories}
@@ -61,14 +65,14 @@ const BottomTab = () => {
             <Fragment>
               <Icon
                 name="card-multiple"
-                color={focused ? "#274472" : color}
+                color={focused ? "#d71e1f" : color}
                 size={26}
               />
               <Text
                 style={{
                   fontWeight: "500",
                   fontSize: 12,
-                  color: focused ? "#274472" : color,
+                  color: focused ? "#d71e1f" : color,
                 }}
               >
                 Categories
@@ -77,6 +81,24 @@ const BottomTab = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="AppDetails"
+        component={AppDetails}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => (
+            <Fragment>
+              <Icon name="contacts" color={focused ? "#d71e1f" : color} size={26} />
+              <Text
+                style={{ fontWeight: '500', fontSize: 12, color: focused ? "#d71e1f" : color }}
+              >
+                Contact
+              </Text>
+            </Fragment>
+          ),
+        }}
+      />
+
     </Tab.Navigator>
   );
 };
@@ -117,7 +139,7 @@ export default function App() {
               gestureEnabled: false,
               headerShadowVisible: true,
               headerTintColor: "#000",
-              headerTitle: route.params.title,
+              headerTitle: route?.params?.title,
               headerStyle: {
                 backgroundColor: "transparent",
               },

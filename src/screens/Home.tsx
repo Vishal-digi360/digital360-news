@@ -3,18 +3,23 @@ import { ScrollView, View } from "react-native";
 import {
   GET_TRENDING_TOPICS,
   GET_NEWS_BY_CHANNEL,
+  GET_All_TOPICS,
 } from "../utils/api/requests";
 import NewsSection from "../components/home/NewsSection";
 import { useCategoryStore } from "../stores/categories";
 import Navbar from "../components/Navbar/Navbar";
 
 const Home = () => {
-  const { news, bbc, cnn, nbc, setNews, setBBC, setCNN, setNBC } =
+  const { news, bbc, cnn, nbc,trending,setTrending, setNews, setBBC, setCNN, setNBC } =
     useCategoryStore();
 
   const getTrendingTopics = async () => {
     const RESPONSE = await GET_TRENDING_TOPICS();
-    if (RESPONSE.status === "ok") setNews(RESPONSE?.articles);
+    if (RESPONSE.status === "ok") setTrending(RESPONSE?.articles?.reverse());
+  };
+  const getAllTopics = async () => {
+    const RESPONSE = await GET_All_TOPICS();
+    if (RESPONSE.status === "ok") setNews(RESPONSE?.articles?.reverse());
   };
 
   const getBBCNews = async () => {
@@ -37,6 +42,7 @@ const Home = () => {
     getBBCNews();
     getCNNNews();
     getNBCNews();
+    getAllTopics()
   }, []);
 
   return (
@@ -48,12 +54,15 @@ const Home = () => {
         {/* Trending Topics */}
         <NewsSection
           title={"Trending Topics"}
-          titleColor="#274472"
+          titleColor="#d71e1f"
           titleWeight="bold"
-          titleSize={21}
-          data={news}
+          titleSize={19}
+          data={trending}
           useDefaultHeight={true}
         />
+
+ {/* CY NEWS */}
+ <NewsSection title={"Cyber Youth News"} titleSize={16} data={news} />
 
         {/* BBC */}
         <NewsSection title={"BBC News"} titleSize={16} data={bbc} />

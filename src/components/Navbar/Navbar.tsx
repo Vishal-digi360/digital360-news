@@ -27,13 +27,13 @@ const Navbar = () => {
       <View style={navbarStyles}>
         <View style={{display:'flex', flexDirection:"row"}}>
         <TouchableOpacity style={styles.navbarButton}>
-        <Image style={{width:134 , height:33.6}} source={require('../../../assets/logodigi.png')}  />
+        <Image style={{width:95 , height:30}} source={require('../../../assets/cynewslogo.png')}  />
         </TouchableOpacity>
         {/* <TouchableOpacity style={styles.navbarButton}>
           <Text style={styles.navbarButtonText}>Digi News</Text>
         </TouchableOpacity> */}
         </View>
-        <TouchableOpacity style={[styles.navbarButton]}>
+        <TouchableOpacity style={styles.LoginBtn}>
           <Text style={[styles.navbarButtonTextLogin, styles.btnBorder]}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#b30b0c',
     height: 60,
     position: 'absolute',
     top: 0,
@@ -62,11 +62,23 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 1,
     elevation: 1,
-    paddingHorizontal:10
+    // paddingHorizontal:10
+    paddingRight:10
   },
   navbarButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    // paddingHorizontal: 2,
+    marginLeft:15,
+    paddingVertical: 8,
+    backgroundColor:"#ffffff"
+    
+  },
+  LoginBtn: {
+    display:"none",
+    // paddingHorizontal: 2,
+    // marginLeft:15,
+    // paddingVertical: 7,
+    backgroundColor:"#ffffff",
+    borderRadius:5
     
   },
   navbarButtonText: {

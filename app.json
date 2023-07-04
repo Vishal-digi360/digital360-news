@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "newsApp",
+    "name": "Cyber Youth News",
     "slug": "newsApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.digital360.newsApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "71f99fd1-00eb-4ff9-881a-45f42202aef4"
+      }
     }
   }
 }

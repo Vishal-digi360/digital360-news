@@ -23,6 +23,7 @@ type RouteParams = {
 const NewsDetails = () => {
   const { params } = useRoute<RouteProp<RouteParams, PageType.NEWS_DETAILS>>();
   const { width } = useWindowSize();
+  console.log(params.details)
 
   return (
     <View>
@@ -32,7 +33,7 @@ const NewsDetails = () => {
           source={{ uri: params.details.urlToImage }}
         />
       </TouchableHighlight>
-      <ScrollView style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
+      <ScrollView style={{ paddingHorizontal: 15, paddingVertical: 10 ,}}>
         <View
           style={{
             flexDirection: "row",
@@ -66,17 +67,18 @@ const NewsDetails = () => {
               {params.details.description}
             </Text>
           </View>
-          <View style={{ marginBottom: 10 }}>
-            <Text>{params.details.content}</Text>
-          </View>
-
           {params.details.author && (
-            <View>
+            <View style={{ marginBottom: 10 }}>
               <Text style={{ fontSize: 12, color: "#BDC3CB" }}>
                 Source - {params.details.author}
               </Text>
             </View>
           )}
+          <View style={{ marginBottom: 10 }}>
+            <Text>{params.details.content}</Text>
+          </View>
+
+         
         </View>
       </ScrollView>
     </View>
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 2,
     borderRadius: 4,
-    backgroundColor: "#0E86D4",
+    backgroundColor: "#d71e1f",
     color: "#fff",
     width: 50,
   },
